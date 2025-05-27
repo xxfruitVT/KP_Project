@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMAN 78 Jakarta</title>
+    <title>Website SMP Padmajaya Palembang</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -18,7 +18,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="{{ asset('logo78.png') }}" width="40"> SMAN 78 JAKARTA</a>
+        <a class="navbar-brand" href="#"><img src="{{ asset('logo78.png') }}" width="40"> SMP Padmajaya Palembang</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTabs">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -98,7 +98,7 @@
 </main>
 
 <footer class="bg-dark text-white text-center py-3 mt-5">
-    &copy; {{ date('Y') }} SMAN 78 Jakarta. All Rights Reserved.
+    &copy; {{ date('Y') }} SMP Padmajaya Palembang. All Rights Reserved.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

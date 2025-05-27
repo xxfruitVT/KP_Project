@@ -59,7 +59,15 @@
     </nav>
 
     <main class="container mt-4">
-        @yield('content')
+        <div class="tab-content" id="tabContent">
+            <div class="tab-pane fade show active" id="beranda">@include('tabs.beranda')</div>
+            <div class="tab-pane fade" id="profil">@include('tabs.profil')</div>
+            <div class="tab-pane fade" id="menu">@include('tabs.menu')</div>
+            <div class="tab-pane fade" id="eperpus">@include('tabs.eperpus')</div>
+            <div class="tab-pane fade" id="ppid">@include('tabs.ppid')</div>
+            <div class="tab-pane fade" id="jak">@include('tabs.jak')</div>
+            <div class="tab-pane fade" id="alumni">@include('tabs.alumni')</div>
+        </div>
     </main>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">

@@ -9,7 +9,7 @@
 <body>
 <header class="bg-dark text-white p-2 d-flex justify-content-between align-items-center">
     <div>
-        <strong>021 5482914</strong> &nbsp; sman78-jkt@sman78-jkt.sch.id
+        <strong>021 5482914</strong> &nbsp; smpPadmadjaya-Palembang@smpPadmajaya-Palembang.sch.id
     </div>
     <div>
         <i class="bi bi-person"></i> <i class="bi bi-person-circle"></i>
@@ -97,9 +97,10 @@
     </div>
 </main>
 
-<footer class="bg-dark text-white text-center py-3 mt-5">
-    &copy; {{ date('Y') }} SMP Padmajaya Palembang. All Rights Reserved.
-</footer>
+{{-- Footer --}}
+    @include('partials.footer')
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

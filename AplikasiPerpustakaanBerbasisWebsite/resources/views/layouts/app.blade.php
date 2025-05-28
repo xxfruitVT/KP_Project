@@ -90,9 +90,9 @@
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
                     <img src="{{ asset('logo78.png') }}" alt="Logo" width="60" class="me-3">
-                    <h5 class="mb-0">SMAN 78 JAKARTA</h5>
+                    <h5 class="mb-0">SMP Padmajaya Palembang</h5>
                 </div>
-                <p>Jl. Bhakti IV/1 Komplek Pajak Kebun Jeruk, Kemanggisan<br>Jakarta Barat 11480</p>
+                <p>Jl. Padma Jaya No.114, 11 Ulu, Kec. Seberang Ulu II,  Kota Palembang<br>Sumatera Selatan 30111</p>
                 <div class="d-flex gap-2 mt-3">
                     <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
@@ -138,7 +138,7 @@
         </div>
 
         <div class="text-center mt-4">
-            <small>© 2024 Copyright SMAN 78 Jakarta. by ToberHost</small>
+            © {{ date('Y') }} SMP Padmajaya Palembang.
         </div>
     </div>
 </footer>

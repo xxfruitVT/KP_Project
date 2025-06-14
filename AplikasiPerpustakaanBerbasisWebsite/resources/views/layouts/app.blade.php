@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Website SMP Padmajaya Palembang</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="{{ asset('css/tab-style.css') }}" rel="stylesheet">
@@ -39,7 +42,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="{{ asset('logo78.png') }}" width="40"> SMP Padmajaya Palembang</a>
+        <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" alt="Logo"
+            style="width: 50px; height: 50px; clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); object-fit: cover;"> SMP Padmajaya Palembang</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTabs">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -107,7 +111,9 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="{{ asset('logo78.png') }}" alt="Logo" width="60" class="me-3">
+                    <img src="{{ asset('images/logo.png') }}"  alt="Logo"
+                    style="width: 50px; height: 50px; clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); object-fit: cover;" class="hexagon-logo">
+               
                     <h5 class="mb-0">SMP Padmajaya Palembang</h5>
                 </div>
                 <p>Jl. Padma Jaya No.114, 11 Ulu <br>Kec. Seberang Ulu II <br> Kota Palembang<br>Sumatera Selatan 30111</p>

@@ -11,3 +11,8 @@
 .triangle-yellow {
     border-bottom-color: #ffc107;
 }
+section.position-relative.bg-dark.text-white {
+    /* Ini kalau ingin kasih efek tambahan misalnya blur atau transparansi */
+    backdrop-filter: blur(3px);
+}
+

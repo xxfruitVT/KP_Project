@@ -2,16 +2,22 @@
 <link rel="stylesheet" href="{{ asset('css/sejarah.css') }}">
 @endpush
 
-
 <!-- Header Section -->
-<section class="position-relative bg-dark text-white text-center py-5" style="background: url('/images/header-sejarah.jpg') center center / cover no-repeat;">
-    <div class="bg-dark bg-opacity-50 position-absolute top-0 start-0 w-100 h-100"></div>
-    <div class="position-relative">
+<section class="position-relative text-white text-center py-5" 
+    style="background: url('/images/sejarah.jpg') center center / cover no-repeat; height: 400px;">
+
+    <!-- Logo di pojok kiri atas atau bebas -->
+    <img src="{{ asset('images/sekolah.jpg') }}" alt="Logo Sekolah" class="logo-besar">
+
+    <!-- Teks di tengah gambar -->
+    <div class="header-center">
         <h1 class="display-4 fw-bold">Sejarah</h1>
         <p class="lead">SMP Padmadjaya Palembang</p>
         <hr class="border-light mx-auto" style="width: 200px;">
     </div>
 </section>
+
+
 
 <!-- Sejarah Content -->
 <section class="py-5 px-4 bg-white text-dark">

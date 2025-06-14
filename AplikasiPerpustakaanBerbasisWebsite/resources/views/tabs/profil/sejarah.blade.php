@@ -9,12 +9,6 @@
     <!-- Logo di pojok kiri atas atau bebas -->
     <img src="{{ asset('images/sekolah.jpg') }}" alt="Logo Sekolah" class="logo-besar">
 
-    <!-- Teks di tengah gambar -->
-    <div class="header-center">
-        <h1 class="display-4 fw-bold">Sejarah</h1>
-        <p class="lead">SMP Padmadjaya Palembang</p>
-        <hr class="border-light mx-auto" style="width: 200px;">
-    </div>
 </section>
 
 

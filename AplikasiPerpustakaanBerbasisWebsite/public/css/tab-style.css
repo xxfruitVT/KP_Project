@@ -1,0 +1,20 @@
+.nav-link,
+.dropdown-item {
+    cursor: pointer;
+    color: #000 !important; /* Warna default hitam */
+}
+
+.nav-link.active,
+.dropdown-item.active,
+.nav-link.show,
+.dropdown-item.show {
+    background-color: transparent !important;
+    color: red !important; /* Warna saat aktif */
+    font-weight: bold;
+}
+
+/* Hover tidak mengubah warna */
+.nav-link:hover,
+.dropdown-item:hover {
+    color: #000 !important;
+}

@@ -6,11 +6,31 @@
     <title>Website SMP Padmajaya Palembang</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ asset('css/tab-style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/nav-bar.css') }}" rel="stylesheet">
+    @stack('styles')
 </head>
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            // Scroll ke bawah
+            navbar.classList.add('navbar-hidden');
+        } else {
+            // Scroll ke atas
+            navbar.classList.remove('navbar-hidden');
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+</script>
+
 <body>
 <header class="bg-dark text-white p-2 d-flex justify-content-between align-items-center">
     <div>
-        <strong>021 5482914</strong> &nbsp; smpPadmadjaya-Palembang@smpPadmajaya-Palembang.sch.id
+        <strong>0711513366.</strong> &nbsp; smppadmajaya19@gmail.com
     </div>
     <div>
         <i class="bi bi-person"></i> <i class="bi bi-person-circle"></i>
@@ -82,17 +102,15 @@
     </div>
 </main>
 
-<!-- Footer -->
 <footer class="bg-dark text-white pt-5 pb-3 mt-5">
     <div class="container">
         <div class="row">
-            <!-- Logo & Alamat -->
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
                     <img src="{{ asset('logo78.png') }}" alt="Logo" width="60" class="me-3">
                     <h5 class="mb-0">SMP Padmajaya Palembang</h5>
                 </div>
-                <p>Jl. Padma Jaya No.114, 11 Ulu, Kec. Seberang Ulu II,  Kota Palembang<br>Sumatera Selatan 30111</p>
+                <p>Jl. Padma Jaya No.114, 11 Ulu <br>Kec. Seberang Ulu II <br> Kota Palembang<br>Sumatera Selatan 30111</p>
                 <div class="d-flex gap-2 mt-3">
                     <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
@@ -100,8 +118,6 @@
                     <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
-
-            <!-- Links -->
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Links</h5>
                 <div class="row">
@@ -123,8 +139,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Newsletter -->
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Tetap terhubung</h5>
                 <p>Daftarkan alamat email Anda untuk mendapatkan kabar terbaru</p>

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Website SMP Padmajaya Palembang</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
@@ -13,6 +12,7 @@
     <link href="{{ asset('css/nav-bar.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
+
 <script>
     let lastScrollTop = 0;
     const navbar = document.querySelector('.navbar');
@@ -20,10 +20,8 @@
     window.addEventListener('scroll', function () {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop) {
-            // Scroll ke bawah
             navbar.classList.add('navbar-hidden');
         } else {
-            // Scroll ke atas
             navbar.classList.remove('navbar-hidden');
         }
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -35,15 +33,15 @@
     <div>
         <strong>0711513366.</strong> &nbsp; smppadmajaya19@gmail.com
     </div>
-    <div>
-        <i class="bi bi-person"></i> <i class="bi bi-person-circle"></i>
-    </div>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" alt="Logo"
-            style="width: 50px; height: 50px; clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); object-fit: cover;"> SMP Padmajaya Palembang</a>
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo"
+                 style="width: 50px; height: 50px; clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); object-fit: cover;">
+            SMP Padmajaya Palembang
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTabs">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -111,17 +109,16 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="{{ asset('images/logo.png') }}"  alt="Logo"
-                    style="width: 50px; height: 50px; clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); object-fit: cover;" class="hexagon-logo">
-               
-                    <h5 class="mb-0">SMP Padmajaya Palembang</h5>
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo"
+                         style="width: 50px; height: 50px; clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); object-fit: cover;">
+                    <h5 class="mb-0 ms-2">SMP Padmajaya Palembang</h5>
                 </div>
                 <p>Jl. Padma Jaya No.114, 11 Ulu <br>Kec. Seberang Ulu II <br> Kota Palembang<br>Sumatera Selatan 30111</p>
                 <div class="d-flex gap-2 mt-3">
-                    <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/share/1C71cU2grw/" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+                    <a href="https://www.instagram.com/smppadmajaya_plg?igsh=MWFkbTFyeDJteXRqaA==" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="https://youtube.com/@padmajayapalembang5507?si=5K2tCOZTu9LI5MKR" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
             <div class="col-md-4 mb-4">

@@ -1,45 +1,128 @@
-<!-- StrukturOrganisasi.blade.php -->
-<section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4 text-center">Struktur Organisasi</h2>
-      <div class="org-scroll-container d-flex overflow-auto gap-4 p-3 bg-white rounded shadow-sm">
-        
-        <!-- Gambar 1 -->
-        <div class="flex-shrink-0">
-          <img src="{{ asset('img/struktur/2f980f01-a3e7-460d-9bfd-dc03da4558cb.png') }}" class="img-fluid" alt="Struktur 1" style="max-height: 400px;">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Struktur Organisasi</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .org-node {
+            text-align: center;
+            margin: 10px;
+            position: relative;
+        }
+
+        .org-node img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .line-down {
+            width: 1px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.3); /* Lebih tipis dan transparan */
+        }
+
+        .connector {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .children {
+            display: flex;
+            gap: 60px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .children::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.3); /* Garis horizontal tipis */
+        }
+
+        .child {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .child::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            width: 1px;
+            height: 20px;
+            background-color: rgba(0, 0, 0, 0.3); /* Garis vertikal tipis */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="org-chart">
+        <!-- Admin -->
+        <div class="org-node">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" alt="Admin">
+            <div><strong>Admin</strong></div>
         </div>
-  
-        <!-- Gambar 2 -->
-        <div class="flex-shrink-0">
-          <img src="{{ asset('img/struktur/f9b36d5c-61fb-434e-9338-0b06e47783b0.png') }}" class="img-fluid" alt="Struktur 2" style="max-height: 400px;">
+
+        <!-- Garis vertikal ke bawah -->
+        <div class="line-down"></div>
+
+        <!-- Garis horizontal & cabang -->
+        <div class="connector">
+            <div class="children">
+                <!-- Anak 1 -->
+                <div class="child">
+                    <div class="org-node">
+                        <img src="https://via.placeholder.com/100x100" alt="Cabang1">
+                        <div><strong>Air Quality</strong></div>
+                    </div>
+                </div>
+                <!-- Anak 2 -->
+                <div class="child">
+                    <div class="org-node">
+                        <img src="https://via.placeholder.com/100x100" alt="Cabang2">
+                        <div><strong>Filter HPA</strong></div>
+                    </div>
+                </div>
+                <!-- Anak 3 -->
+                <div class="child">
+                    <div class="org-node">
+                        <img src="https://via.placeholder.com/100x100" alt="Cabang3">
+                        <div><strong>Greenroom</strong></div>
+                    </div>
+                </div>
+                <!-- Anak 4 -->
+                <div class="child">
+                    <div class="org-node">
+                        <img src="https://via.placeholder.com/100x100" alt="Cabang4">
+                        <div><strong>Gunshot Detection</strong></div>
+                    </div>
+                </div>
+            </div>
         </div>
-  
-        <!-- Gambar 3 -->
-        <div class="flex-shrink-0">
-          <img src="{{ asset('img/struktur/e6de08d5-23cb-4af9-a6eb-7788840de098.png') }}" class="img-fluid" alt="Struktur 3" style="max-height: 400px;">
-        </div>
-  
-        <!-- Gambar 4 -->
-        <div class="flex-shrink-0">
-          <img src="{{ asset('img/struktur/736762c7-4207-4850-8c0d-4099b475cfbe.png') }}" class="img-fluid" alt="Struktur 4" style="max-height: 400px;">
-        </div>
-  
-        <!-- Gambar 5 -->
-        <div class="flex-shrink-0">
-          <img src="{{ asset('img/struktur/57122322-79f3-4a3d-a573-bd2ac9c3a841.png') }}" class="img-fluid" alt="Struktur 5" style="max-height: 400px;">
-        </div>
-  
-        <!-- Gambar 6 -->
-        <div class="flex-shrink-0">
-          <img src="{{ asset('img/struktur/92e0da76-92cf-461d-ac7e-80e6f24cb144.png') }}" class="img-fluid" alt="Struktur 6" style="max-height: 400px;">
-        </div>
-  
-        <!-- Gambar 7 -->
-        <div class="flex-shrink-0">
-          <img src="{{ asset('img/struktur/8ab8ead6-97fd-47b7-8f31-e694d20a8911.png') }}" class="img-fluid" alt="Struktur 7" style="max-height: 400px;">
-        </div>
-  
-      </div>
     </div>
-  </section>
-  
+</body>
+</html>

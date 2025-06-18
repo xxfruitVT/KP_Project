@@ -1,21 +1,21 @@
-@push('styles')
+
 <link rel="stylesheet" href="{{ asset('css/sejarah.css') }}">
-@endpush
-
-<!-- Header Section -->
-<section class="position-relative text-white text-center py-5" 
-    style="background: url('/images/sejarah.jpg') center center / cover no-repeat; height: 400px;">
-
-    <div class="position-relative w-100">
-        <img src="{{ asset('images/sekolah.jpg') }}" alt="Sarana dan Prasarana" style="width: 100%; height: 400px; object-fit: cover; filter: brightness(60%);">
-        <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
-            <h2 class="fw-bold">SEJARAH</h2>
-            <p class="fs-5">SMP PADMAJAYA PALEMBANG</p>
-        </div>
-    </div>
-
-</section>
 <style>
+    @keyframes slideUpFade {
+        0% {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .animate-slide-up {
+        animation: slideUpFade 0.8s ease-out;
+    }
+
     .sarana-container {
         display: flex;
         flex-wrap: wrap;
@@ -63,25 +63,60 @@
     .sarana-text ol {
         padding-left: 1.25rem;
     }
-</style
+</style>
 
 
+<!-- TAB CONTENT -->
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="visi" role="tabpanel" aria-labelledby="visi-tab">
 
-<!-- Sejarah Content -->
-<section class="py-5 px-4 bg-white text-dark">
-    <div class="container">
-        <h2 class="fw-bold mb-3">VISI dan MISI</h2>
-        <p class="fs-5 mb-4">VISI dan MISI SMP Padmadjaya Palembang</p>
-        <div class="mb-4">
-            <hr class="border-warning" style="width: 300px; height: 4px;">
-        </div>
-        <div class="lh-lg text-justify">
-            <h8 class="fw-bold mb-3">VISI</h8>
-            <p>Terbentuknya insan yang berkarakter Pancasila, berwawasan IPTEK dan berbudaya lingkungan.</p>
-            <h8 class="fw-bold mb-3">MISI</h8>
-            <p>1. Melaksanakan kegiatan penanaman nilai-nilai kemanusiaan (PNK).</p>
-            <p>2. Melaksanakan pendidikan karakter dalam kegiatan projek penguatan profil pelajar Pancasila (P5).</p>
-            <p>3. Menciptakan warga sekolah peduli dengan lingkungan.</p>
-        </div>
+        <!-- Header Section -->
+        <section class="position-relative text-white text-center py-5" 
+            style="background: url('/images/sejarah.jpg') center center / cover no-repeat; height: 400px;">
+            <div class="position-relative w-100">
+                <img src="{{ asset('images/sekolah.jpg') }}" alt="Sarana dan Prasarana" style="width: 100%; height: 400px; object-fit: cover; filter: brightness(60%);">
+                <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+                    <h2 class="fw-bold">VISI DAN MISI</h2>
+                    <p class="fs-5">SMP PADMAJAYA PALEMBANG</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visi Misi Content -->
+        <section id="visiMisiContent" class="py-5 px-4 bg-white text-dark">
+            <div class="container">
+                <h2 class="fw-bold mb-3">VISI dan MISI</h2>
+                <p class="fs-5 mb-4">VISI dan MISI SMP Padmadjaya Palembang</p>
+                <div class="mb-4">
+                    <hr class="border-warning" style="width: 300px; height: 4px;">
+                </div>
+                <div class="lh-lg text-justify">
+                    <h5 class="fw-bold mb-2">VISI</h5>
+                    <p>Terbentuknya insan yang berkarakter Pancasila, berwawasan IPTEK dan berbudaya lingkungan.</p>
+                    <h5 class="fw-bold mt-4 mb-2">MISI</h5>
+                    <p>1. Melaksanakan kegiatan penanaman nilai-nilai kemanusiaan (PNK).</p>
+                    <p>2. Melaksanakan pendidikan karakter dalam kegiatan projek penguatan profil pelajar Pancasila (P5).</p>
+                    <p>3. Menciptakan warga sekolah peduli dengan lingkungan.</p>
+                </div>
+            </div>
+        </section>
+
     </div>
-</section>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabTrigger = document.querySelector('[data-bs-target="#visi"]');
+        const content = document.getElementById("visiMisiContent");
+
+        if (tabTrigger && content) {
+            tabTrigger.addEventListener("shown.bs.tab", function () {
+                content.classList.remove("animate-slide-up");
+                void content.offsetWidth; // Restart animation
+                content.classList.add("animate-slide-up");
+            });
+        }
+    });
+</script>
+

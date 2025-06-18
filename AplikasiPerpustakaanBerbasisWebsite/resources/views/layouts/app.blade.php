@@ -67,14 +67,9 @@
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#galeri">Photo Galeri</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#partnership">Partnership</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#berita">Berita & Artikel</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#elearning">E-Learning</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#ptn">PTN/PTS</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#evoting">E-Voting</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#eperpus">E-PERPUS</button></li>
-                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#ppid">PPID</button></li>
-                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#jak">JAK KONEK</button></li>
                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#alumni">IKATAN ALUMNI</button></li>
             </ul>
         </div>
@@ -94,12 +89,8 @@
         <div class="tab-pane fade" id="galeri">@include('tabs.menu.galeri')</div>
         <div class="tab-pane fade" id="partnership">@include('tabs.menu.partnership')</div>
         <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div>
-        <div class="tab-pane fade" id="elearning">@include('tabs.menu.elearning')</div>
-        <div class="tab-pane fade" id="ptn">@include('tabs.menu.ptn')</div>
-        <div class="tab-pane fade" id="evoting">@include('tabs.menu.evoting')</div>
         <div class="tab-pane fade" id="eperpus">@include('tabs.eperpus')</div>
-        <div class="tab-pane fade" id="ppid">@include('tabs.ppid')</div>
-        <div class="tab-pane fade" id="jak">@include('tabs.jak')</div>
+      
         <div class="tab-pane fade" id="alumni">@include('tabs.alumni')</div>
     </div>
 </main>
@@ -134,7 +125,6 @@
                     </div>
                     <div class="col-6">
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-white text-decoration-none">E-LEARNING</a></li>
                             <li><a href="#" class="text-white text-decoration-none">E-PERPUS</a></li>
                             <li><a href="#" class="text-white text-decoration-none">E-KBM</a></li>
                             <li><a href="#" class="text-white text-decoration-none">E-POINT</a></li>

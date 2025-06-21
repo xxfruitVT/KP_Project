@@ -225,7 +225,7 @@
     <div class="sambutan-kiri">
       <img src="{{ asset('images/gambar12.jpg') }}" alt="Kepala Sekolah" class="kepsek-img">
       <div class="kepsek-info">
-        <h2>Jenny Chintia</h2>
+        <h2>Jenny Chintia, S.Pd</h2>
         <p>Kepala Sekolah</p>
       </div>
     </div>

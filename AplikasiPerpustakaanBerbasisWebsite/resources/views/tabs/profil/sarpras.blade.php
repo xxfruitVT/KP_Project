@@ -17,13 +17,14 @@
 
 <section class="py-5 px-4 bg-white text-dark">
     <div class="container">
-        <h2 class="fw-bold mb-3">Sarana dan Prasarana</h2>
-        <p class="fs-5 mb-4">Sarana dan Prasarana SMP Padmadjaya Palembang</p>
+        <h2 class="fw-bold mb-3 mt-4">Sarana dan Prasarana</h2>
+        <p class="fs-5 mb-4 mt-3">Sarana dan Prasarana SMP Padmadjaya Palembang</p>
         <div class="mb-4">
             <hr class="border-warning" style="width: 300px; height: 4px;">
         </div>
     </div>
 </section>
+
 
 <style>
     .sarana-container {

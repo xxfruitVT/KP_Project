@@ -1,190 +1,173 @@
-<section class="position-relative text-white text-center py-5" 
-    style="background: url('/images/sejarah.jpg') center center / cover no-repeat; height: 400px;">
-
-    <div class="position-relative w-100">
-        <img src="{{ asset('images/sekolah.jpg') }}" alt="Sarana dan Prasarana" style="width: 100%; height: 400px; object-fit: cover; filter: brightness(60%);">
-        <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
-            <h2 class="fw-bold">STRUKTUR ORGANISASI</h2>
-            <p class="fs-5">SMP PADMAJAYA PALEMBANG</p>
-        </div>
-    </div>
-
-</section>
-<style>
-    .sarana-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 2rem;
-        padding: 2rem;
-    }
-
-    .sarana-image {
-        flex: 1 1 300px;
-        max-width: 500px;
-        position: relative;
-        border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .sarana-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .sarana-caption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 1rem;
-        color: white;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-        width: 100%;
-    }
-
-    .sarana-text {
-        flex: 1 1 300px;
-        max-width: 600px;
-    }
-
-    .sarana-text h5 {
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-
-    .sarana-text ol {
-        padding-left: 1.25rem;
-    }
-</style
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Struktur Organisasi</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f8f9fa;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Struktur Organisasi SMP Padmajaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .org-chart {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 40px;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding: 40px 10px;
+      background: #f9f9f9;
+    }
 
-        .org-node {
-            text-align: center;
-            margin: 10px;
-            position: relative;
-        }
+    .tree ul {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding-top: 20px;
+    }
 
-        .org-node img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+    .tree li {
+      list-style-type: none;
+      text-align: center;
+      padding: 20px 5px 0 5px;
+      position: relative;
+    }
 
-        .line-down {
-            width: 1px;
-            height: 30px;
-            background-color: rgba(0, 0, 0, 0.3); /* Lebih tipis dan transparan */
-        }
+    .tree li::before, .tree li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      border-top: 1px solid #ccc;
+      width: 50%;
+      height: 20px;
+    }
 
-        .connector {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-            margin: 0 auto;
-        }
+    .tree li::before {
+      right: 50%;
+      border-right: 1px solid #ccc;
+    }
 
-        .children {
-            display: flex;
-            gap: 60px;
-            position: relative;
-            padding: 0 10px;
-        }
+    .tree li::after {
+      left: 50%;
+      border-left: 1px solid #ccc;
+    }
 
-        .children::before {
-            content: "";
-            position: absolute;
-            top: -20px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: rgba(0, 0, 0, 0.3); /* Garis horizontal tipis */
-        }
+    .tree li:only-child::before,
+    .tree li:only-child::after {
+      display: none;
+    }
 
-        .child {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .tree li:only-child {
+      padding-top: 0;
+    }
 
-        .child::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            width: 1px;
-            height: 20px;
-            background-color: rgba(0, 0, 0, 0.3); /* Garis vertikal tipis */
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    </style>
+    .tree li > ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 1px solid #ccc;
+      height: 20px;
+    }
+
+    .tree a {
+      display: inline-block;
+      padding: 10px;
+      background: white;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 160px;
+    }
+
+    .tree a.yellow { background-color: #fff799; }
+    .tree a.green { background-color: #a9f7a3; }
+    .tree a.pink { background-color: #f9c7d5; }
+    .tree a.blue { background-color: #a5d8ff; }
+    .tree a.orange { background-color: #ffd59e; }
+
+    .tree {
+      width: 100%;
+    }
+
+    .node-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .line-down {
+      height: 20px;
+      width: 1px;
+      background: #ccc;
+      margin: 0 auto;
+    }
+
+    .spacer {
+      height: 40px;
+    }
+  </style>
 </head>
 <body>
-    <div class="org-chart">
-        <!-- Admin -->
-        <div class="org-node">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" alt="Admin">
-            <div><strong>Admin</strong></div>
-        </div>
 
-        <!-- Garis vertikal ke bawah -->
-        <div class="line-down"></div>
+  <h2 style="text-align:center; margin-bottom: 20px;">STRUKTUR ORGANISASI SMP PADMAJAYA</h2>
 
-        <!-- Garis horizontal & cabang -->
-        <div class="connector">
-            <div class="children">
-                <!-- Anak 1 -->
-                <div class="child">
-                    <div class="org-node">
-                        <img src="https://via.placeholder.com/100x100" alt="Cabang1">
-                        <div><strong>Air Quality</strong></div>
-                    </div>
-                </div>
-                <!-- Anak 2 -->
-                <div class="child">
-                    <div class="org-node">
-                        <img src="https://via.placeholder.com/100x100" alt="Cabang2">
-                        <div><strong>Filter HPA</strong></div>
-                    </div>
-                </div>
-                <!-- Anak 3 -->
-                <div class="child">
-                    <div class="org-node">
-                        <img src="https://via.placeholder.com/100x100" alt="Cabang3">
-                        <div><strong>Greenroom</strong></div>
-                    </div>
-                </div>
-                <!-- Anak 4 -->
-                <div class="child">
-                    <div class="org-node">
-                        <img src="https://via.placeholder.com/100x100" alt="Cabang4">
-                        <div><strong>Gunshot Detection</strong></div>
-                    </div>
-                </div>
+  <div class="tree">
+    <!-- Ketua Yayasan -->
+    <ul>
+      <li>
+        <a class="orange" href="#">Ketua Yayasan<br><small>Zewwy Salim</small></a>
+        <ul>
+          <li>
+            <!-- Garis horizontal -->
+            <div class="node-group">
+              <a class="orange" href="#">Komite Sekolah<br><small>Sholihin, S.Pd.I</small></a>
+              <a class="blue" href="#">Kepala Sekolah<br><small>Jenny Chintia, S.Pd</small></a>
             </div>
-        </div>
-    </div>
+
+            <!-- Bendahara & Operator -->
+            <div class="spacer"></div>
+            <div class="node-group">
+              <a class="pink" href="#">Bendahara<br><small>Guntur Autura Syana, S.E</small></a>
+              <a class="pink" href="#">Operator<br><small>Guntur Autura Syana, S.E</small></a>
+            </div>
+
+            <!-- Waka & TU -->
+            <div class="spacer"></div>
+            <div class="node-group">
+              <a class="green" href="#">Tata Usaha<br><small>Revi Mariska, S.Pd</small></a>
+              <a class="green" href="#">Waka Kurikulum<br><small>Evita Dewi Harnis, S.Pd</small></a>
+              <div>
+                <a class="green" href="#">Waka Kesiswaan<br><small>Angga Reka Saputra, S.Pd</small></a>
+                <div class="line-down"></div>
+                <a class="yellow" href="#">Koordinator BK<br><small>Revi Mariska, S.Pd</small></a>
+              </div>
+              <div>
+                <a class="green" href="#">Waka Sarpras<br><small>Angga Reka Saputra, S.Pd</small></a>
+                <div class="line-down"></div>
+                <div class="node-group">
+                  <a class="yellow" href="#">Ka Perpustakaan<br><small>Irma Suryani, S.Pd</small></a>
+                  <a class="yellow" href="#">Ka Laboratorium<br><small>Evita Dewi Harnis, S.Pd</small></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wali Kelas, Guru Mapel, Siswa -->
+            <div class="spacer"></div>
+            <div class="line-down"></div>
+            <div class="node-group">
+              <a class="yellow" href="#">Wali Kelas</a>
+              <a class="yellow" href="#">Guru Mapel</a>
+              <a class="yellow" href="#">Siswa</a>
+            </div>
+
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
 </body>
 </html>

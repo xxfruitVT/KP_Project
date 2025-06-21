@@ -11,8 +11,15 @@
     <link href="{{ asset('css/tab-style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/nav-bar.css') }}" rel="stylesheet">
     @stack('styles')
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 
+<body>
 <script>
     let lastScrollTop = 0;
     const navbar = document.querySelector('.navbar');
@@ -28,7 +35,6 @@
     });
 </script>
 
-<body>
 <header class="bg-dark text-white p-2 d-flex justify-content-between align-items-center">
     <div>
         <strong>0711513366.</strong> &nbsp; smppadmajaya19@gmail.com
@@ -55,7 +61,6 @@
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#sejarah">Sejarah</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#visi">Visi & Misi</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#struktur">Struktur</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#guru">Tenaga Pendidik</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#akademik">Akademik</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#kesiswaan">Kesiswaan & Humas</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#sarpras">Sarpras</a></li>
@@ -82,15 +87,13 @@
         <div class="tab-pane fade" id="sejarah">@include('tabs.profil.sejarah')</div>
         <div class="tab-pane fade" id="visi">@include('tabs.profil.visi')</div>
         <div class="tab-pane fade" id="struktur">@include('tabs.profil.struktur')</div>
-        <div class="tab-pane fade" id="guru">@include('tabs.profil.tenaga')</div>
         <div class="tab-pane fade" id="akademik">@include('tabs.profil.akademik')</div>
         <div class="tab-pane fade" id="kesiswaan">@include('tabs.profil.kesiswaan')</div>
         <div class="tab-pane fade" id="sarpras">@include('tabs.profil.sarpras')</div>
         <div class="tab-pane fade" id="galeri">@include('tabs.menu.galeri')</div>
         <div class="tab-pane fade" id="partnership">@include('tabs.menu.partnership')</div>
-        <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div>
+        <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div>   
         <div class="tab-pane fade" id="eperpus">@include('tabs.eperpus')</div>
-      
         <div class="tab-pane fade" id="alumni">@include('tabs.alumni')</div>
     </div>
 </main>
@@ -151,5 +154,24 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabLinks = document.querySelectorAll('[data-bs-toggle="tab"], .dropdown-item');
+
+        tabLinks.forEach(link => {
+            link.addEventListener("shown.bs.tab", function (e) {
+                let label = e.target.textContent.trim();
+
+                // Format agar huruf awal kapital tiap kata
+                label = label.replace(/\w\S*/g, (txt) =>
+                    txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()
+                );
+
+                document.title = `${label} - SMP Padmajaya Palembang`;
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

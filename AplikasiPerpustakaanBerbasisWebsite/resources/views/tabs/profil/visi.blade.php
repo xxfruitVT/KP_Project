@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="{{ asset('css/sejarah.css') }}">
 <style>
     @keyframes slideUpFade {
@@ -83,27 +82,50 @@
         </section>
 
         <!-- Visi Misi Content -->
-        <section id="visiMisiContent" class="py-5 px-4 bg-white text-dark">
-            <div class="container">
-                <h2 class="fw-bold mb-3">VISI dan MISI</h2>
-                <p class="fs-5 mb-4">VISI dan MISI SMP Padmadjaya Palembang</p>
-                <div class="mb-4">
-                    <hr class="border-warning" style="width: 300px; height: 4px;">
-                </div>
-                <div class="lh-lg text-justify">
-                    <h5 class="fw-bold mb-2">VISI</h5>
-                    <p>Terbentuknya insan yang berkarakter Pancasila, berwawasan IPTEK dan berbudaya lingkungan.</p>
-                    <h5 class="fw-bold mt-4 mb-2">MISI</h5>
-                    <p>1. Melaksanakan kegiatan penanaman nilai-nilai kemanusiaan (PNK).</p>
-                    <p>2. Melaksanakan pendidikan karakter dalam kegiatan projek penguatan profil pelajar Pancasila (P5).</p>
-                    <p>3. Menciptakan warga sekolah peduli dengan lingkungan.</p>
-                </div>
-            </div>
-        </section>
+       <!-- Visi Misi Content -->
+<section id="visiMisiContent" class="py-5 px-4 bg-white text-dark">
+    <div class="container">
+        <h2 class="fw-bold mb-3 mt-4">VISI dan MISI</h2>
+        <p class="fs-5 mb-4 mt-3">VISI dan MISI SMP Padmadjaya Palembang</p>
+        <div class="mb-4">
+            <hr class="border-warning" style="width: 300px; height: 4px;">
+        </div>
+        <div class="lh-lg text-justify">
+            <h5 class="fw-bold mb-2">VISI</h5>
+            <p>Terbentuknya insan yang berkarakter Pancasila, berwawasan IPTEK dan berbudaya lingkungan.</p>
+            
+            <h5 class="fw-bold mt-4 mb-2">MISI</h5>
+            <ol>
+                <li>Melaksanakan kegiatan penanaman nilai-nilai kemanusiaan (PNK).</li>
+                <ul>
+                    <li>1.1 Membudayakan budi pekerti luhur bagi warga sekolah.</li>
+                    <li>1.2 Mengakui persamaan hak, derajat dan kewajiban sesama warga sekolah.</li>
+                    <li>1.3 Menjamin hak belajar setiap anak tanpa terkecuali termasuk anak yang berkebutuhan khusus (inklusi) dalam proses pembelajaran.</li>
+                    <li>1.4 Membiasakan perilaku 5S: Senyum, Sapa, Salam, Sopan, dan Santun.</li>
+                </ul>
+                <li>Melaksanakan pendidikan karakter dalam kegiatan Projek Penguatan Profil Pelajar Pancasila (P5).</li>
+                <ul>
+                    <li>2.1 Menanamkan nilai karakter pelajar Pancasila melalui berbagai aktivitas.</li>
+                </ul>
+                <li>Menerapkan strategi pembelajaran yang berorientasi pada ilmu pengetahuan dan teknologi (IPTEK).</li>
+                <ul>
+                    <li>3.1 Melakukan inovasi dalam kegiatan belajar mengajar.</li>
+                    <li>3.2 Membiasakan membaca 15 menit sebelum jam pelajaran dimulai.</li>
+                    <li>3.3 Melaksanakan pembelajaran berbasis teknologi.</li>
+                </ul>
+                <li>Menciptakan warga sekolah peduli dengan lingkungan.</li>
+                <ul>
+                    <li>4.1 Menjaga lingkungan sekolah bersih, hijau dan meminimalisir sampah yang tidak bermanfaat.</li>
+                    <li>4.2 Memaksimalkan sekolah hijau dengan merawat dan memelihara tanaman sekolah.</li>
+                </ul>
+            </ol>
+        </div>
+    </div>
+</section>
+
 
     </div>
 </div>
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -119,4 +141,3 @@
         }
     });
 </script>
-

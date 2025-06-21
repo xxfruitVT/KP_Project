@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="{{ asset('css/sejarah.css') }}">
 <style>
     @keyframes slideUpFade {
@@ -14,6 +13,10 @@
 
     .animate-slide-up {
         animation: slideUpFade 0.8s ease-out;
+    }
+
+    .top-60 {
+        top: 60% !important;
     }
 
     .sarana-container {
@@ -63,9 +66,12 @@
     .sarana-text ol {
         padding-left: 1.25rem;
     }
+
+    /* Tambahan untuk menurunkan posisi tulisan sejarah */
+    #sejarahContent {
+        margin-top: 50px;
+    }
 </style>
-
-
 
 <!-- TAB CONTENT -->
 <div class="tab-content" id="myTabContent">
@@ -77,7 +83,7 @@
             <div class="position-relative w-100">
                 <img src="{{ asset('images/sekolah.jpg') }}" alt="Sarana dan Prasarana" 
                     style="width: 100%; height: 400px; object-fit: cover; filter: brightness(60%);">
-                <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+                <div class="position-absolute top-60 start-50 translate-middle-x text-white text-center">
                     <h2 class="fw-bold">SEJARAH</h2>
                     <p class="fs-5">SMP PADMAJAYA PALEMBANG</p>
                 </div>
@@ -105,8 +111,6 @@
     </div>
 </div>
 
-
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const tabTrigger = document.querySelector('[data-bs-target="#sejarah"]');
@@ -121,4 +125,3 @@
         }
     });
 </script>
-

@@ -79,9 +79,9 @@
 }
 </style>
 
-<div class="container py-5">
+<div class="container py-5 mt-4">
     <h2 class="mb-2">Photo Galeri</h2>
-<p class="mb-4">Photo Galeri SMP Padmajaya Palembang</p>
+    <p class="mb-4">Photo Galeri SMP Padmajaya Palembang</p>
 
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">

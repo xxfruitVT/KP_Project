@@ -75,7 +75,10 @@
 
                     </ul>
                 </li>
-                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#eperpus">E-PERPUS</button></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('eperpus') }}">E-PERPUS</a>
+                </li>
+                
                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#alumni">IKATAN ALUMNI</button></li>
             </ul>
         </div>
@@ -94,7 +97,6 @@
         <div class="tab-pane fade" id="galeri">@include('tabs.menu.galeri')</div>
         <div class="tab-pane fade" id="partnership">@include('tabs.menu.partnership')</div>
         <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div>   
-        <div class="tab-pane fade" id="eperpus">@include('tabs.eperpus')</div>
         <div class="tab-pane fade" id="alumni">@include('tabs.alumni')</div>
     </div>
 </main>

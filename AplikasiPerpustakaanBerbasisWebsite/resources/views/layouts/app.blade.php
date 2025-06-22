@@ -71,7 +71,8 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#galeri">Photo Galeri</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#partnership">Partnership</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#berita">Berita & Artikel</a></li>
+                        <li><a class="dropdown-item" href="{{ route('posts.index') }}">Berita & Artikel</a></li>
+
                     </ul>
                 </li>
                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#eperpus">E-PERPUS</button></li>

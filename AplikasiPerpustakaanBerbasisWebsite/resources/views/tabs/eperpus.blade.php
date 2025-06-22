@@ -122,9 +122,9 @@
 <nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="{{ asset('images/logo-sman78.png') }}" alt="Logo">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo">
             <div class="brand-text">
-                PERPUSTAKAAN<br>SMAN 78 JAKARTA
+                PERPUSTAKAAN<br>SMP PADMAJAYA PALEMBANG
             </div>
         </a>
 
@@ -135,12 +135,17 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Beranda<br><small class="text-muted">JAK KONEK</small></a>
+                    <a class="nav-link active" href="#">Beranda</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Kearifan Lokal</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Baca Online</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Podcast</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kearifan Lokal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Berita</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Baca Online</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown">
                         Login
@@ -151,6 +156,7 @@
                     </ul>
                 </li>
             </ul>
+            
         </div>
     </div>
 </nav>

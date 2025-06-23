@@ -14,160 +14,168 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      padding: 40px 10px;
       background: #f9f9f9;
-    }
-
-    .tree ul {
-      display: flex;
-      justify-content: center;
-      position: relative;
-      padding-top: 20px;
-    }
-
-    .tree li {
-      list-style-type: none;
-      text-align: center;
-      padding: 20px 5px 0 5px;
+      padding: 20px;
       position: relative;
     }
 
-    .tree li::before, .tree li::after {
-      content: '';
+    #connectorCanvas {
       position: absolute;
       top: 0;
-      border-top: 1px solid #ccc;
-      width: 50%;
-      height: 20px;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
     }
-
-    .tree li::before {
-      right: 50%;
-      border-right: 1px solid #ccc;
-    }
-
-    .tree li::after {
-      left: 50%;
-      border-left: 1px solid #ccc;
-    }
-
-    .tree li:only-child::before,
-    .tree li:only-child::after {
-      display: none;
-    }
-
-    .tree li:only-child {
-      padding-top: 0;
-    }
-
-    .tree li > ul::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      border-left: 1px solid #ccc;
-      height: 20px;
-    }
-
-    .tree a {
-      display: inline-block;
-      padding: 10px;
-      background: white;
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      min-width: 160px;
-    }
-
-    .tree a.yellow { background-color: #fff799; }
-    .tree a.green { background-color: #a9f7a3; }
-    .tree a.pink { background-color: #f9c7d5; }
-    .tree a.blue { background-color: #a5d8ff; }
-    .tree a.orange { background-color: #ffd59e; }
 
     .tree {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
     }
 
-    .node-group {
+    .level {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
+      flex-wrap: wrap;
     }
 
-    .line-down {
-      height: 20px;
-      width: 1px;
-      background: #ccc;
-      margin: 0 auto;
+    .box {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      min-width: 160px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      position: relative;
     }
 
-    .spacer {
-      height: 40px;
-    }
+    .orange { background-color: #ffd59e; }
+    .blue { background-color: #a5d8ff; }
+    .pink { background-color: #f9c7d5; }
+    .green { background-color: #a9f7a3; }
+    .yellow { background-color: #fff799; }
   </style>
 </head>
 <body>
 
-  <h2 style="text-align:center; margin-bottom: 20px;">STRUKTUR ORGANISASI SMP PADMAJAYA</h2>
+<canvas id="connectorCanvas"></canvas>
 
-  <div class="tree">
-    <!-- Ketua Yayasan -->
-    <ul>
-      <li>
-        <a class="orange" href="#">Ketua Yayasan<br><small>Zewwy Salim</small></a>
-        <ul>
-          <li>
-            <!-- Garis horizontal -->
-            <div class="node-group">
-              <a class="orange" href="#">Komite Sekolah<br><small>Sholihin, S.Pd.I</small></a>
-              <a class="blue" href="#">Kepala Sekolah<br><small>Jenny Chintia, S.Pd</small></a>
-            </div>
+<h2 style="text-align:center; margin-bottom: 30px;">STRUKTUR ORGANISASI SMP PADMAJAYA</h2>
 
-            <!-- Bendahara & Operator -->
-            <div class="spacer"></div>
-            <div class="node-group">
-              <a class="pink" href="#">Bendahara<br><small>Guntur Autura Syana, S.E</small></a>
-              <a class="pink" href="#">Operator<br><small>Guntur Autura Syana, S.E</small></a>
-            </div>
+<div class="tree">
 
-            <!-- Waka & TU -->
-            <div class="spacer"></div>
-            <div class="node-group">
-              <a class="green" href="#">Tata Usaha<br><small>Revi Mariska, S.Pd</small></a>
-              <a class="green" href="#">Waka Kurikulum<br><small>Evita Dewi Harnis, S.Pd</small></a>
-              <div>
-                <a class="green" href="#">Waka Kesiswaan<br><small>Angga Reka Saputra, S.Pd</small></a>
-                <div class="line-down"></div>
-                <a class="yellow" href="#">Koordinator BK<br><small>Revi Mariska, S.Pd</small></a>
-              </div>
-              <div>
-                <a class="green" href="#">Waka Sarpras<br><small>Angga Reka Saputra, S.Pd</small></a>
-                <div class="line-down"></div>
-                <div class="node-group">
-                  <a class="yellow" href="#">Ka Perpustakaan<br><small>Irma Suryani, S.Pd</small></a>
-                  <a class="yellow" href="#">Ka Laboratorium<br><small>Evita Dewi Harnis, S.Pd</small></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wali Kelas, Guru Mapel, Siswa -->
-            <div class="spacer"></div>
-            <div class="line-down"></div>
-            <div class="node-group">
-              <a class="yellow" href="#">Wali Kelas</a>
-              <a class="yellow" href="#">Guru Mapel</a>
-              <a class="yellow" href="#">Siswa</a>
-            </div>
-
-          </li>
-        </ul>
-      </li>
-    </ul>
+  <!-- Level 1 -->
+  <div class="level" id="level1">
+    <div class="box orange" id="yayasan">Ketua Yayasan<br><small>Zewwy Salim</small></div>
   </div>
+
+  <!-- Level 2 -->
+  <div class="level" id="level2">
+    <div class="box orange" id="komite">Komite Sekolah<br><small>Sholihin, S.Pd.I</small></div>
+    <div class="box blue" id="kepala">Kepala Sekolah<br><small>Jenny Chintia, S.Pd</small></div>
+  </div>
+
+  <!-- Level 3 -->
+  <div class="level" id="level3">
+    <div class="box pink" id="bendahara">Bendahara<br><small>KMS. Guntur Autura Syanai, S.E</small></div>
+    <div class="box pink" id="operator">Operator<br><small>Guntur Autura Syana, S.E</small></div>
+  </div>
+
+  <!-- Level 4 -->
+  <div class="level" id="level4">
+    <div class="box green" id="tu">Tata Usaha<br><small>Revi Mariska, S.Pd</small></div>
+    <div class="box green" id="kurikulum">Waka Kurikulum<br><small>Evita Dewi Harnis, S.Pd</small></div>
+
+    <div class="box green" id="kesiswaan">Waka Kesiswaan<br><small>Angga Reka Saputra, S.Pd</small></div>
+    <div class="box green" id="sarpras">Waka Sarpras<br><small>Angga Reka Saputra, S.Pd</small></div>
+  </div>
+
+  <!-- Level 5 -->
+  <div class="level" id="level5">
+    <div class="box yellow" id="bk">Koordinator BK<br><small>Revi Mariska, S.Pd</small></div>
+    <div class="box yellow" id="perpus">Ka Perpustakaan<br><small>Irma Suryani, S.Pd</small></div>
+    <div class="box yellow" id="lab">Ka Laboratorium<br><small>Evita Dewi Harnis, S.Pd</small></div>
+  </div>
+
+  <!-- Level 6 -->
+  <div class="level" id="level6">
+    <div class="box yellow" id="walas">Wali Kelas</div>
+    <div class="box yellow" id="mapel">Guru Mapel</div>
+    <div class="box yellow" id="siswa">Siswa</div>
+  </div>
+
+</div>
+
+<script>
+ function drawLine(fromId, toId, ctx) {
+  const fromEl = document.getElementById(fromId);
+  const toEl = document.getElementById(toId);
+  if (!fromEl || !toEl) return;
+
+  const fromRect = fromEl.getBoundingClientRect();
+  const toRect = toEl.getBoundingClientRect();
+
+  const startX = fromRect.left + fromRect.width / 2 + window.scrollX;
+  const startY = fromRect.bottom + window.scrollY;
+
+  const endX = toRect.left + toRect.width / 2 + window.scrollX;
+  const endY = toRect.top + window.scrollY;
+
+  const midY = (startY + endY) / 2;
+
+  ctx.beginPath();
+  ctx.moveTo(startX, startY);     // down from source
+  ctx.lineTo(startX, midY);       // vertical down halfway
+  ctx.lineTo(endX, midY);         // horizontal to target X
+  ctx.lineTo(endX, endY);         // vertical down to target
+  ctx.strokeStyle = "#999";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+
+  function drawAllConnections() {
+    const canvas = document.getElementById("connectorCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = document.body.scrollWidth;
+    canvas.height = document.body.scrollHeight;
+
+    const connections = [
+      ["yayasan", "komite"],
+      ["yayasan", "kepala"],
+      ["kepala", "bendahara"],
+      ["kepala", "operator"],
+      ["operator", "tu"],
+      ["operator", "kurikulum"],
+      ["operator", "kesiswaan"],
+      ["operator", "sarpras"],
+      ["kesiswaan", "bk"],
+      ["sarpras", "perpus"],
+      ["sarpras", "lab"],
+      ["lab", "walas"],
+      ["lab", "mapel"],
+      ["lab", "siswa"]
+    ];
+
+    connections.forEach(([from, to]) => drawLine(from, to, ctx));
+  }
+
+  window.addEventListener("load", drawAllConnections);
+  window.addEventListener("resize", () => {
+    // redraw on resize
+    const canvas = document.getElementById("connectorCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawAllConnections();
+  });
+</script>
 
 </body>
 </html>

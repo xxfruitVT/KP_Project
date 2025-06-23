@@ -24,3 +24,10 @@ Route::get('/eperpus', function () {
     return view('tabs.eperpus');
 })->name('eperpus');
 
+Route::get('/kesiswaan', [PostController::class, 'kesiswaan'])->name('kesiswaan.index');
+Route::get('/sarpras', [PostController::class, 'sarpras'])->name('sarpras.index');
+
+Route::get('/kesiswaan/{slug}', [PostController::class, 'showKesiswaan'])->name('kesiswaan.show');
+Route::get('/sarpras/{slug}', [PostController::class, 'showSarpras'])->name('sarpras.show');
+
+

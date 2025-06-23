@@ -15,8 +15,14 @@ public function akademik()
 public function home()
 {
     $akademikPosts = Post::where('kategori', 'akademik')->latest()->paginate(5);
-    return view('layouts.app', compact('akademikPosts'));
+    $kesiswaanPosts = Post::where('kategori', 'kesiswaan')->latest()->get();
+    $sarprasPosts = Post::where('kategori', 'sarpras')->latest()->get();
+
+    return view('layouts.app', compact('akademikPosts', 'kesiswaanPosts', 'sarprasPosts'));
 }
+
+
+
 
 public function showAkademik($slug)
 {
@@ -32,6 +38,17 @@ public function index()
     $sarprasPosts = Post::where('kategori', 'sarpras')->latest()->get();
 
     return view('layouts.app', compact('akademikPosts', 'kesiswaanPosts', 'sarprasPosts'));
+}
+public function kesiswaan()
+{
+    $posts = Post::where('kategori', 'kesiswaan')->latest()->paginate(5);
+    return view('tabs.profil.kesiswaan', compact('posts'));
+}
+
+public function sarpras()
+{
+    $posts = Post::where('kategori', 'sarpras')->latest()->paginate(5);
+    return view('tabs.profil.sarpras', compact('posts'));
 }
 
 

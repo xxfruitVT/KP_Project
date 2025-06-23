@@ -62,19 +62,14 @@
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#visi">Visi & Misi</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#struktur">Struktur</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#akademik">Akademik</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#kesiswaan">Kesiswaan & Humas</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#sarpras">Sarpras</a></li>
+                        {{-- <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#kesiswaan">Kesiswaan & Humas</a></li> --}}
+                        {{-- <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#sarpras">Sarpras</a></li> --}}
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">MENU UTAMA</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#galeri">Photo Galeri</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#partnership">Partnership</a></li>
-                        <li><a class="dropdown-item" href="{{ route('akademik.index') }}">Berita & Artikel</a></li>
-
-                    </ul>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#galeri">PHOTO GALERI</button>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('eperpus') }}">E-PERPUS</a>
                 </li>
@@ -91,12 +86,19 @@
         <div class="tab-pane fade" id="sejarah">@include('tabs.profil.sejarah')</div>
         <div class="tab-pane fade" id="visi">@include('tabs.profil.visi')</div>
         <div class="tab-pane fade" id="struktur">@include('tabs.profil.struktur')</div>
-        <div class="tab-pane fade" id="akademik">@include('tabs.profil.akademik', ['posts' => $akademikPosts])</div>
-        <div class="tab-pane fade" id="kesiswaan">@include('tabs.profil.kesiswaan')</div>
-        <div class="tab-pane fade" id="sarpras">@include('tabs.profil.sarpras')</div>
+        <div class="tab-pane fade" id="akademik">@includeIf('tabs.profil.akademik', ['posts' => $akademikPosts ?? collect()])</div>
+        {{-- <div class="tab-pane fade" id="kesiswaan">
+            @include('tabs.profil.kesiswaan', ['posts' => $kesiswaanPosts ?? collect()])
+        </div> --}}
+        
+        {{-- <div class="tab-pane fade" id="sarpras">
+            @include('tabs.profil.sarpras', ['posts' => $sarprasPosts ?? collect()])
+        </div> --}}
+        
+        
         <div class="tab-pane fade" id="galeri">@include('tabs.menu.galeri')</div>
-        <div class="tab-pane fade" id="partnership">@include('tabs.menu.partnership')</div>
-        <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div>
+        {{-- <div class="tab-pane fade" id="partnership">@include('tabs.menu.partnership')</div>
+        <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div> --}}
         <div class="tab-pane fade" id="alumni">@include('tabs.alumni')</div>
     </div>
 </main>

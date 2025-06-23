@@ -1,32 +1,26 @@
-    <?php
+<?php
 
-    use Illuminate\Support\Facades\Route;
-    use App\Http\Controllers\ProfilController;
-    use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\PostController;
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
 
-    Route::get('/', function () {
-        return view('layouts.app');
-    });
+// Halaman utama akan menampilkan tab dengan data akademik
+Route::get('/', [PostController::class, 'home'])->name('akademik.index');
 
+// Route untuk menampilkan detail artikel akademik
+Route::get('/akademik/{slug}', [PostController::class, 'showAkademik'])->name('akademik.show');
 
+// Route tambahan
+Route::get('/profil/sejarah', [ProfilController::class, 'sejarah'])->name('profil.sejarah');
 
-    Route::get('/profil/sejarah', [ProfilController::class, 'sejarah'])->name('profil.sejarah');
-    Route::get('/arsip', [PostController::class, 'index'])->name('posts.index');
-    Route::get('/arsip/{slug}', [PostController::class, 'show'])->name('posts.show');
-
+// E-Perpus (static view)
 Route::get('/eperpus', function () {
     return view('tabs.eperpus');
 })->name('eperpus');
-
-
-
-
-
-
-
-
 

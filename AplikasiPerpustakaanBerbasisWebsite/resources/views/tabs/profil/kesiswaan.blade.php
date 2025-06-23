@@ -6,7 +6,7 @@
 <section class="py-5 px-4 bg-white text-dark">
     <div class="container">
         <h3 class="fw-bold mb-3">Kesiswaan dan Humas dan MISI</h3>
-        <h8 class="fs-5 mb-4">Kesiswaan dan Humas SMP Padmadjaya Palembang</h8>
+        <h5 class="fs-5 mb-4">Kesiswaan dan Humas SMP Padmadjaya Palembang</h5>
         <div class="mb-4">
             <hr class="border-warning" style="width: 300px; height: 4px;">
         </div>

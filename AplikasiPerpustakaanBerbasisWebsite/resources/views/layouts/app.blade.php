@@ -71,7 +71,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#galeri">Photo Galeri</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="tab" data-bs-target="#partnership">Partnership</a></li>
-                        <li><a class="dropdown-item" href="{{ route('posts.index') }}">Berita & Artikel</a></li>
+                        <li><a class="dropdown-item" href="{{ route('akademik.index') }}">Berita & Artikel</a></li>
 
                     </ul>
                 </li>
@@ -91,15 +91,16 @@
         <div class="tab-pane fade" id="sejarah">@include('tabs.profil.sejarah')</div>
         <div class="tab-pane fade" id="visi">@include('tabs.profil.visi')</div>
         <div class="tab-pane fade" id="struktur">@include('tabs.profil.struktur')</div>
-        <div class="tab-pane fade" id="akademik">@include('tabs.profil.akademik')</div>
+        <div class="tab-pane fade" id="akademik">@include('tabs.profil.akademik', ['posts' => $akademikPosts])</div>
         <div class="tab-pane fade" id="kesiswaan">@include('tabs.profil.kesiswaan')</div>
         <div class="tab-pane fade" id="sarpras">@include('tabs.profil.sarpras')</div>
         <div class="tab-pane fade" id="galeri">@include('tabs.menu.galeri')</div>
         <div class="tab-pane fade" id="partnership">@include('tabs.menu.partnership')</div>
-        <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div>   
+        <div class="tab-pane fade" id="berita">@include('tabs.menu.berita')</div>
         <div class="tab-pane fade" id="alumni">@include('tabs.alumni')</div>
     </div>
 </main>
+
 
 <footer class="bg-dark text-white pt-5 pb-3 mt-5">
     <div class="container">
@@ -175,6 +176,46 @@
         });
     });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll('.dropdown-item[data-bs-toggle="tab"]');
+
+        tabButtons.forEach(button => {
+            button.addEventListener("click", function (e) {
+                e.preventDefault(); // mencegah link default
+                const tabTarget = document.querySelector(button.getAttribute("data-bs-target"));
+
+                if (tabTarget) {
+                    const tabTrigger = new bootstrap.Tab(button);
+                    tabTrigger.show();
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Simpan tab aktif
+        const tabTriggerElements = document.querySelectorAll('[data-bs-toggle="tab"]');
+        tabTriggerElements.forEach(el => {
+            el.addEventListener("click", () => {
+                localStorage.setItem('lastTab', el.getAttribute('data-bs-target'));
+            });
+        });
+
+        // Restore tab terakhir
+        const lastTab = localStorage.getItem('lastTab');
+        if (lastTab) {
+            const someTabTrigger = document.querySelector(`[data-bs-target="${lastTab}"]`);
+            if (someTabTrigger) {
+                bootstrap.Tab.getOrCreateInstance(someTabTrigger).show();
+            }
+        }
+    });
+</script>
+
 
 </body>
 </html>

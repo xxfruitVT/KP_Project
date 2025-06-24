@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Book;
+
 
 class AuthController extends Controller
 {
@@ -65,4 +67,11 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function show($id)
+{
+    $book = Book::findOrFail($id);
+    return view('eperpus.detail', compact('book'));
+}
+
 }

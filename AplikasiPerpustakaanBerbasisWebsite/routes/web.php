@@ -54,6 +54,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/admin/dashboard', fn() => view('dashboard.admin'))->middleware('auth')->name('admin.dashboard');
 Route::get('/siswa/dashboard', fn() => view('dashboard.siswa'))->middleware('auth')->name('siswa.dashboard');
 
+Route::get('/eperpus/{id}', [BookController::class, 'show'])->name('buku.detail');
 
 
 

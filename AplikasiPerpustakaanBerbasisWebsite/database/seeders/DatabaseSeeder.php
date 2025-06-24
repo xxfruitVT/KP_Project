@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
            
             SarprasPostSeeder::class, 
         ]);
+        $this->call([
+            BookSeeder::class,
+        ]);
     }
     
     

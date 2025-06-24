@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,19 @@ Route::get('/sarpras', [PostController::class, 'sarpras'])->name('sarpras.index'
 
 Route::get('/kesiswaan/{slug}', [PostController::class, 'showKesiswaan'])->name('kesiswaan.show');
 Route::get('/sarpras/{slug}', [PostController::class, 'showSarpras'])->name('sarpras.show');
+
+
+
+// Login & Register
+Route::get('/login/{role?}', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Dashboard Role
+Route::get('/admin/dashboard', fn() => view('dashboard.admin'))->middleware('auth')->name('admin.dashboard');
+Route::get('/siswa/dashboard', fn() => view('dashboard.siswa'))->middleware('auth')->name('siswa.dashboard');
 
 
 

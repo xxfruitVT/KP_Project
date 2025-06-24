@@ -162,9 +162,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#kearifan-lokal">Kearifan Lokal</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Berita</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#">Baca Online</a>
                 </li>
@@ -173,10 +173,11 @@
                         Login
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Login Admin</a></li>
-                        <li><a class="dropdown-item" href="#">Login Siswa</a></li>
+                        <li><a class="dropdown-item" href="{{ route('login', ['role' => 'admin']) }}">Login Admin</a></li>
+                        <li><a class="dropdown-item" href="{{ route('login', ['role' => 'siswa']) }}">Login Siswa</a></li>
                     </ul>
                 </li>
+                
             </ul>
         </div>
     </div>
@@ -192,10 +193,15 @@
                 Temukan buku kesukaan kamu dan pinjam buku kapanpun kamu mau hanya di layanan E-Perpus SMP Padmajaya Palembang
             </p>
             <div class="d-flex gap-3 flex-wrap">
-                <button class="hero-btn-orange">Login</button>
-                <a href="#" class="btn btn-outline-dark align-self-center">Registrasi →</a>
+                <a href="{{ route('login', ['role' => 'admin']) }}" class="hero-btn-orange">Login Admin</a>
+                <a href="{{ route('login', ['role' => 'siswa']) }}" class="hero-btn-orange">Login Siswa</a>
+                <a href="{{ route('register') }}" class="btn btn-outline-dark align-self-center">Registrasi →</a>
             </div>
-            <a href="#" class="hero-btn-green">SOP PELAYANAN SIRKULASI PERPUSTAKAAN</a>
+            
+            <a href="{{ asset('pdf/SOP.pdf') }}" target="_blank" class="hero-btn-green">
+                SOP PELAYANAN SIRKULASI PERPUSTAKAAN
+            </a>
+            
         </div>
 
         <div class="image-section col-md-5 text-center slide-in-right">

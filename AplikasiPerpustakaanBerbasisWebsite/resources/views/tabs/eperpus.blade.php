@@ -154,13 +154,14 @@
                 <li class="nav-item"><a class="nav-link active" href="#">Beranda</a></li>
                 <li class="nav-item"><a class="nav-link" href="#kearifan-lokal">Kearifan Lokal</a></li>
                 <li class="nav-item"><a class="nav-link" href="#book-read">Baca Online</a></li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown">Login</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('login', ['role' => 'admin']) }}">Login Admin</a></li>
                         <li><a class="dropdown-item" href="{{ route('login', ['role' => 'siswa']) }}">Login Siswa</a></li>
                     </ul>
-                </li>
+                </li> --}}
+                <li class="nav-item"><a class="nav-link" href="{{ route('login.form') }}">Login</a></li>
             </ul>
         </div>
     </div>
@@ -173,12 +174,12 @@
             <h6 class="text-muted">SELAMAT DATANG DI</h6>
             <h1 class="hero-title">Perpustakaan SMP Padmajaya Palembang</h1>
             <p class="hero-subtitle mt-3 mb-4">Temukan buku kesukaan kamu dan pinjam buku kapanpun kamu mau hanya di layanan E-Perpus SMP Padmajaya Palembang</p>
-            <div class="d-flex gap-3 flex-wrap">
+            {{-- <div class="d-flex gap-3 flex-wrap">
                 <a href="{{ route('login', ['role' => 'admin']) }}" class="hero-btn-orange">Login Admin</a>
                 <a href="{{ route('login', ['role' => 'siswa']) }}" class="hero-btn-orange">Login Siswa</a>
                 <a href="{{ route('register') }}" class="btn btn-outline-dark align-self-center">Registrasi →</a>
             </div>
-            <a href="{{ asset('pdf/SOP.pdf') }}" target="_blank" class="hero-btn-green">SOP PELAYANAN SIRKULASI PERPUSTAKAAN</a>
+            <a href="{{ asset('pdf/SOP.pdf') }}" target="_blank" class="hero-btn-green">SOP PELAYANAN SIRKULASI PERPUSTAKAAN</a> --}}
         </div>
         <div class="image-section col-md-5 text-center slide-in-right">
             <img src="{{ asset('images/perpus.png') }}" alt="Buku" class="hero-image">

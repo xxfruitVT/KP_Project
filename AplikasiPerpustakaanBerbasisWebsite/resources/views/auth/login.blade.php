@@ -10,13 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <?php
-    include "config/koneksi.php";
-
-    $sql = mysqli_query($koneksi, "SELECT * FROM identitas");
-    $row1 = mysqli_fetch_assoc($sql);
-    ?>
-    <title>Masuk | <?= $row1['nama_app']; ?></title>
+    <title>Masuk | {{ $identitas->nama_app ?? 'Nama Aplikasi' }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -40,12 +34,13 @@
 <body class="hold-transition login-page" style="font-family: 'Quicksand', sans-serif;">
     <div class="login-box">
         <div class="login-logo">
-            <a href="masuk"><b><?= $row1['nama_app']; ?></b></a>
+            <a href="masuk"><b>{{ $identitas->nama_app ?? '' }}</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body" style="border-radius: 10px;">
             <img src="../assets/dist/img/logo_app.png" height="80px" width="80px" style="display: block; margin-left: auto; margin-right: auto; margin-top: -12px; margin-bottom: 5px;">
-            <form name="formLogin" action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form name="formLogin" action="{{ route('login') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <input type="hidden" name="_token" value="<?= csrf_token() ?>">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" name="username" id="username" placeholder="Nama Pengguna">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -74,7 +69,7 @@
                 </div>
             </div>
 
-            <p style="text-align: center; font-size: 13px;">Hak Cipta &copy; <?= date('Y'); ?> .<?= $row1['nama_app']; ?> by FA Team.</p>
+            <p style="text-align: center; font-size: 13px;">Hak Cipta &copy; <?= date('Y'); ?> .{{ $identitas->nama_app ?? '' }} by FA Team.</p>
             <br><center><p>Repost by <a href='#' title='Belajar Koding' target='_blank'>Belajar Koding</a></p></center>
             
 
@@ -134,18 +129,18 @@
         ?>
     </script>
     <script>
-        <?php
-        if (isset($_SESSION['gagal']) && $_SESSION['gagal'] <> '') {
-            echo "swal({
-                icon: 'error',
-                title: 'Peringatan',
-                text: '$_SESSION[gagal]',
-                buttons: false,
-                timer: 3000
-              })";
-        }
-        $_SESSION['gagal'] = '';
-        ?>
+        @if (session('gagal_login'))
+  <script>
+    swal({
+      icon: 'error',
+      title: 'Peringatan',
+      text: '{{ session('gagal_login') }}',
+      buttons: false,
+      timer: 3000
+    })
+  </script>
+@endif
+
     </script>
     <!-- -->
     <script>

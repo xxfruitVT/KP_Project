@@ -71,7 +71,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">E-PERPUS</a>
+                    <a class="nav-link" href="{{ route('eperpus.index') }}">E-PERPUS</a>
                 </li>
                 
                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#alumni">IKATAN ALUMNI</button></li>

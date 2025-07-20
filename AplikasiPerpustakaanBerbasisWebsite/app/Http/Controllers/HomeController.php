@@ -7,6 +7,8 @@ use App\Models\Genre;
 use App\Models\HistoryBook;
 use Illuminate\Http\Request;
 use App\Models\Chatbot;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -17,7 +19,7 @@ class HomeController extends Controller
             ->get();
         $allBooks = Book::orderBy('created_at', 'desc')
             ->paginate(4);
-        $bestBookEntry = HistoryBook::select('book_id', \DB::raw('count(*) as total'))
+        $bestBookEntry = HistoryBook::select('book_id', DB::raw('count(*) as total'))
             ->groupBy('book_id')
             ->orderBy('total', 'desc')
             ->first();
@@ -30,7 +32,7 @@ class HomeController extends Controller
         $genres = Genre::all();
         $books  = Book::all();
 
-        $bestVisitorBooks = HistoryBook::select('book_id', \DB::raw('count(*) as total'))
+        $bestVisitorBooks = HistoryBook::select('book_id', DB::raw('count(*) as total'))
             ->groupBy('book_id')
             ->orderBy('total', 'desc')
             ->take(4)

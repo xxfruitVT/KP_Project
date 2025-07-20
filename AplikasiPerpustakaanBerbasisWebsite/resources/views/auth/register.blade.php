@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layoutseperpus.auth')
 @section('content')
 
 <main class="main-content mt-0">

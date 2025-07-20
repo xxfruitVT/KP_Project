@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layoutseperpus.home')
 @section('content')
 
 <section id="billboard">

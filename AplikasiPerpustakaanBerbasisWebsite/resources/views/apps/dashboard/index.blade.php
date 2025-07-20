@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layoutseperpus.apps')
 @section('content')
 
 @if ( auth()->user()->role == 'user' )

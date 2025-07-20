@@ -1,140 +1,133 @@
 <?php
 
-
-
-
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use App\Models\Book;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\DB;
-use App\Models\Identitas;
-
-
-//------------------------------::::::::::::::::::::------------------------------\\
-
-//------------------------------::::::::::::::::::::------------------------------\\
-
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
-{
-    $credentials = [
-        'name' => $request->input('uname'),
-        'password' => $request->input('passw'),
-    ];
 
-    if (Auth::attempt($credentials)) {
-        return redirect('/dashboard');
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            if (Auth::check()) {
+                return redirect()->route('dashboard.index');
+            }
+            return $next($request);
+        });
     }
 
-    Session::flash('gagal_login', 'Username atau password salah!');
-    return redirect('/login');
-}
-
-
-    public function showLoginForm()
+    public function index()
     {
-        $identitas = Identitas::first();
-    return view('auth.login', compact('identitas')); // Sesuaikan dengan lokasi file blade-mu
+        return view('auth.login');
     }
 
-    public function showRegister()
-    {
-        $identitas = DB::table('identitas')->first();
-    return view('auth.register', compact('identitas'));
-    }
-
-    public function register(Request $request)
+    public function loginSubmit(Request $request)
     {
         $request->validate([
-            'funame' => 'required|string|max:255',
-            'uname' => 'required|string|max:100|unique:users,name',
-            'passw' => 'required|min:6',
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Email tidak valid',
+            'password.required' => 'Password harus diisi',
         ]);
-        
 
-        User::create([
-            'name' => $request->uname,
-            'password' => Hash::make($request->passw),
-        ]);
-        
-
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil!');
+        $credentials = $request->only('email', 'password');
+        $remember = $request->has('remember_me');
+        try {
+            if (Auth::attempt($credentials, $remember)) {
+                return redirect()->route('dashboard.index')->with('success', 'Login berhasil');
+            } else {
+                return redirect()->back()->with('error', 'Email atau password salah');
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
-    
-    // public function showLogin($role = null) {
-    //     if ($role === 'admin') {
-    //         return view('auth.login-admin', compact('role'));
-    //     } elseif ($role === 'siswa') {
-    //         return view('auth.login-siswa', compact('role'));
-    //     } else {
-    //         abort(404); // atau bisa redirect ke login default
-    //     }
-    // }
-    
+    public function register()
+    {
+        return view('auth.register');
+    }
 
-    // public function login(Request $request) {
-    //     $credentials = $request->only('email', 'password');
-    //     $role = $request->input('role');
-    
-    //     $user = User::where('email', $credentials['email'])->first();
-    //     if ($user && Hash::check($credentials['password'], $user->password)) {
-    //         if ($role && $user->role !== $role) {
-    //             return back()->withErrors(['email' => 'Role tidak cocok']);
-    //         }
-    
-    //         Auth::login($user);
-    //         //  Ubah redirect ke eperpus, tidak lagi ke dashboard
-    //         return redirect()->route('eperpus');
-    //     }
-    
-    //     return back()->withErrors(['email' => 'Email atau password salah']);
-    // }
-    
+    public function registerSubmit(Request $request)
+    {
+        if (!$request->email || !$request->name || !$request->password || !$request->password_confirmation) {
+            return redirect()->back()->with('error', 'Harap lengkapi semua kolom');
+        }
 
-    // public function showRegister() {
-    //     return view('auth.register');
-    // }
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users',
+                'password' => 'required',
+                'password_confirmation' => 'required|same:password',
+            ],
+            [
+                'name.required' => 'Nama harus diisi',
+                'email.required' => 'Email harus diisi',
+                'email.email' => 'Email tidak valid',
+                'password.required' => 'Password harus diisi',
+                'password_confirmation.required' => 'Konfirmasi Password harus diisi',
+                'password_confirmation.same' => 'Konfirmasi Password tidak sama',
+            ]
+        );
+        try {
 
-    // public function register(Request $request) {
-        
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required|email|unique:users',
-    //         'password' => 'required|confirmed',
-    //         'role' => 'required|in:admin,siswa'
-    //     ]);
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->remember_token = Str::random(60);
+            $user->save();
 
-    //     User::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => bcrypt($request->password),
-    //         'role' => $request->role,
-    //     ]);
+            return redirect()->route('login')->with('success', 'Pendaftaran berhasil, silahkan login');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Pendaftaran gagal, silahkan coba lagi');
+        }
+    }
 
-    //     return redirect()->route('login', ['role' => $request->role])->with('success', 'Registrasi berhasil, silakan login.');
-    // }
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
 
-    // public function logout(Request $request) {
-    //     Auth::logout();
-    //     return redirect('/');
-    // }
+    public function handleGoogleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
 
-    public function show($id)
-{
-    $book = Book::findOrFail($id);
-    return view('eperpus.detail', compact('book'));
-}
+            // dd($googleUser);
 
+            $user = User::where('email', $googleUser->getEmail())->first();
 
+            if ($user) {
+                if (is_null($user->google_id)) {
+                    $user->update([
+                        'google_id' => $googleUser->getId(),
+                    ]);
+                }
+            } else {
+                $user = User::create([
+                    'name' => $googleUser->getName(),
+                    'email' => $googleUser->getEmail(),
+                    'password' => bcrypt(Str::random(8)),
+                    'google_id' => $googleUser->getId(),
+                ]);
+            }
 
+            Auth::login($user);
+
+            return redirect()->route('dashboard.index')->with('success', 'Login Berhasil');
+        } catch (\Exception $e) {
+            return redirect()->route('login')->with('error', 'Login gagal: ' . $e->getMessage());
+        }
+    }
 
 }

@@ -1,213 +1,85 @@
-<?php
+@extends('layouts.auth')
+@section('content')
 
-//------------------------------::::::::::::::::::::------------------------------\\
-
-//------------------------------::::::::::::::::::::------------------------------\\
-?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Masuk | {{ $identitas->nama_app ?? 'Nama Aplikasi' }}</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="../assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../assets/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="../assets/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../assets/dist/css/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../assets/plugins/iCheck/square/blue.css">
-    <!-- Icon -->
-    <link rel="icon" type="icon" href="../assets/dist/img/logo_app.png">
-    <!-- Custom -->
-    <link rel="stylesheet" href="../assets/dist/css/custom.css">
-    <!-- Toastr -->
-    <link rel="stylesheet" href="../assets/dist/css/toastr.min.css">
-</head>
-
-<body class="hold-transition login-page" style="font-family: 'Quicksand', sans-serif;">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="masuk"><b>{{ $identitas->nama_app ?? '' }}</b></a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="login-box-body" style="border-radius: 10px;">
-            <img src="../assets/dist/img/logo_app.png" height="80px" width="80px" style="display: block; margin-left: auto; margin-right: auto; margin-top: -12px; margin-bottom: 5px;">
-            <form name="formLogin" action="{{ route('login') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
-                <input type="hidden" name="_token" value="<?= csrf_token() ?>">
-                <div class="form-group has-feedback">
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Nama Pengguna">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Kata Sandi">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-100">
+            <div class="container">
                 <div class="row">
-                    <!-- /.col -->
-                    <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
+                    <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+                        <div class="card card-plain">
+                            <div class="card-header pb-0 text-start">
+                                <h4 class="font-weight-bolder">Masuk</h4>
+                                <p class="mb-0">Silahkan masukkan akun pengguna Anda!</p>
+                            </div>
+                            <div class="card-body">
+                                <form action="{{ route('login.submit') }}" method="POST" role="form">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email" name="email" value="{{ old('email') }}">
+                                        @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password" name="password" id="password">
+                                        @error('password')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input type="checkbox" class="form-check-input" id="showPassword">
+                                        <label class="form-check-label" for="showPassword">Lihat Password</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Ingat Saya</label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Masuk</button>
+                                    </div>
+                                </form>
+                                <hr class="my-4 horizontal dark">
+                                <div class="text-center">
+                                    <a href="{{ route('login.google') }}" class="btn btn-white btn-lg w-100">
+                                        <img src="https://w7.pngwing.com/pngs/249/19/png-transparent-google-logo-g-suite-google-guava-google-plus-company-text-logo.png" alt="Google" style="width: 20px; vertical-align: middle; margin-right: 8px;">
+                                        Masuk dengan Google
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <p class="mb-4 text-sm mx-auto">
+                                    Belum punya akun?
+                                    <a href="{{ route('register') }}" class="text-primary text-gradient font-weight-bold">Mendaftar</a>
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
-                    <!-- /.col -->
-                </div>
-            </form>
-
-            <div class="social-auth-links text-center">
-                <p style="font-size: 11px;">- ATAU -</p>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <a href="{{ route('register') }}" class="btn btn-block btn-warning btn-flat">
-                            <i class="fa fa-user-plus"></i> Daftar sebagai member
-                        </a>
+                    <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+                        <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+          background-size: cover;">
+                            <span class="mask bg-gradient-primary opacity-6"></span>
+                            <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
+                            <p class="text-white position-relative">The more effortless the writing looks, the more effort the writer actually put into the process.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <p style="text-align: center; font-size: 13px;">Hak Cipta &copy; <?= date('Y'); ?> .{{ $identitas->nama_app ?? '' }} by FA Team.</p>
-            <br><center><p>Repost by <a href='#' title='Belajar Koding' target='_blank'>Belajar Koding</a></p></center>
-            
-
         </div>
-        <!-- /.login-box-body -->
-    </div>
-    <!-- /.login-box -->
+    </section>
+</main>
 
-    <!-- jQuery 3 -->
-    <script src="../assets/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- -->
-    <script src="../assets/json/lottie-player.js"></script>
-    <!-- Fungsi mengarahkan kehalaman pendaftaran -->
-    <script>
-        function Register() {
-            window.location.href = "pendaftaran";
-        }
-    </script>
-    <!-- Fungsi mengarahkan kehalaman lupa password -->
-    <script>
-        function ForgotPassword() {
-            window.location.href = "lupa-password";
-        }
-    </script>
-    <!-- Sweet Alert -->
-    <script src="../assets/dist/js/sweetalert.min.js"></script>
-    <!-- Pesan Masuk Dulu -->
-    <script>
-        <?php
-        if (isset($_SESSION['masuk_dulu']) && $_SESSION['masuk_dulu'] <> '') {
-            echo "swal({
-                icon: 'error',
-                title: 'Peringatan',
-                text: '$_SESSION[masuk_dulu]',
-                buttons: false,
-                timer: 3000
-              })";
-        }
-        $_SESSION['masuk_dulu'] = '';
-        ?>
-    </script>
-    <!-- Pesan Pendaftaran -->
-    <script>
-        <?php
-        if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] <> '') {
-            echo "swal({
-                icon: 'success',
-                title: 'Berhasil',
-                text: '$_SESSION[berhasil]',
-                buttons: false,
-                timer: 3000
-              })";
-        }
-        $_SESSION['berhasil'] = '';
-        ?>
-    </script>
-    <script>
-        @if (session('gagal_login'))
-  <script>
-    swal({
-      icon: 'error',
-      title: 'Peringatan',
-      text: '{{ session('gagal_login') }}',
-      buttons: false,
-      timer: 3000
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const passwordInput = document.getElementById('password');
+
+        document.getElementById('showPassword').addEventListener('change', function() {
+            const type = this.checked ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            passwordConfirmationInput.setAttribute('type', type);
+        });
     })
-  </script>
-@endif
+</script>
 
-    </script>
-    <!-- -->
-    <script>
-        <?php
-        if (isset($_SESSION['gagal_login']) && $_SESSION['gagal_login'] <> '') {
-            echo "swal({
-                icon: 'error',
-                title: 'Peringatan',
-                text: '$_SESSION[gagal_login]',
-                buttons: false,
-                timer: 3000
-              })";
-        }
-        $_SESSION['gagal_login'] = '';
-        ?>
-    </script>
-    <script>
-        <?php
-        if (isset($_SESSION['berhasil_keluar']) && $_SESSION['berhasil_keluar'] <> '') {
-            echo "swal({
-            icon: 'success',
-            title: 'Berhasil',
-            text: '$_SESSION[berhasil_keluar]',
-            buttons: false,
-            timer: 3000
-        })";
-        }
-        $_SESSION['berhasil_keluar'] = '';
-        ?>
-    </script>
-    <!-- Toastr -->
-    <script src="../assets/dist/js/toastr.min.js"></script>
-    <!-- -->
-    <script>
-        toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": true,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
-    </script>
-    <!-- -->
-    <script>
-        function validateForm() {
-            if (document.forms["formLogin"]["username"].value == "") {
-                toastr.error("Nama Pengguna harus diisi !!");
-                document.forms["formLogin"]["username"].focus();
-                return false;
-            }
-            if (document.forms["formLogin"]["password"].value == "") {
-                toastr.error("Kata Sandi harus diisi !!");
-                document.forms["formLogin"]["password"].focus();
-                return false;
-            }
-        }
-    </script>
-</body>
-
-</html>
+@endsection

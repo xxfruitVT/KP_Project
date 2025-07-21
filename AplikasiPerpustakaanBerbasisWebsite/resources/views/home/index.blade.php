@@ -53,7 +53,7 @@
             <div class="inner-content d-flex justify-content-center">
                 <div class="logo-wrap">
                     <div class="grid">
-                        <a href="#" style="margin-right: 2rem;"><img src="https://akupintar.id/documents/20143/0/Universitas-Muhammadiyah-Ponorogo.png/4fdcd695-13b3-1682-3b70-dfe76d29222f?version=1.0&t=1535017350970&imageThumbnail=1" alt="client" width="150"></a>
+                        <a href="#" style="margin-right: 2rem;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR5VzuFvpYWD9_M2jxCxB_GcOMJ8fPUyDASnOFsgLpSHbs-A_Z8zZlY8irIV1PXpHidI5n-LWt6kEZDrNvDo2VoRcMOol9BffMt83kpKz5OOeXWTrU64IuQGiy95mFSF9WKmx_5-zkcOBGkG6cXydOQZGOOq_6dlnvNfv__FzlR7BW4Kog0tc_xg/s320/Kota%20Palembang%20[koleksilogo.com].png" alt="client" width="150"></a>
                         <a href="#"><img src="https://www.um-surabaya.ac.id/uploads/home/education/mbkm/foto_akreditasi-admin-QTwgrG.webp" class="mt-3" alt="client" width="350"></a>
                     </div>
                 </div><!--image-holder-->
@@ -346,11 +346,11 @@
             <div class="col" style="flex: 1; padding: 10px;">
                 <h5 style="font-weight: bold;">Ikuti Kami</h5>
                 <ul style="list-style-type: none; padding: 0;">
-                    <li><a href="https://web.facebook.com/profile.php?id=100014477028282" style="text-decoration: none;">Facebook</a></li>
-                    <li><a href="https://wa.me/082338520959" style="text-decoration: none;">WhatsApp</a></li>
-                    <li><a href="https://www.instagram.com/irhamkaraman/" style="text-decoration: none;">Instagram</a></li>
-                    <li><a href="https://github.com/irhamkaraman" style="text-decoration: none;">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/lazuardi-irham-karaman-3178a3305/?originalSubdomain=id" style="text-decoration: none;">LinkedIn</a></li>
+                    <li><a href="https://www.facebook.com/share/1C71cU2grw/" style="text-decoration: none;">Facebook</a></li>
+                    <li><a href="https://wa.me/083802526295" style="text-decoration: none;">WhatsApp</a></li>
+                    <li><a href="https://www.instagram.com/smppadmajaya_plg?igsh=MWFkbTFyeDJteXRqaA==" style="text-decoration: none;">Instagram</a></li>
+                    <li><a href="" style="text-decoration: none;">GitHub</a></li>
+                    <li><a href="" style="text-decoration: none;">LinkedIn</a></li>
                 </ul>
             </div>
 
@@ -376,9 +376,7 @@
         <div class="row" style="margin-top: 20px; text-align: center;">
             <h5 style="font-weight: bold;">Tim Kami:</h5>
             <div style="margin-top: 10px;">
-                <p style="margin-bottom: 0px;">Lazuardi Irham Karaman</p>
-                <p style="margin-bottom: 0px;">Andika Dwi Putra</p>
-                <p>Agya Gilar Cahyono</p>
+                <p style="margin-bottom: 0px;">SMP Padmajaya Palembang</p>
             </div>
         </div>
 
@@ -395,7 +393,7 @@
 
                         <div class="col-md-6">
                             <p>© {{ date('Y') }} All rights reserved. Coder by <a
-                                    href="https://irhamkaraman.my.id/" target="_blank">Kelas B Kelompok 1</a></p>
+                                    href="https://www.facebook.com/share/1C71cU2grw/" target="_blank">SMP Padmajaya Palembang</a></p>
                         </div>
 
                     </div>
